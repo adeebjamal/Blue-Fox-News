@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login: for registered users</title>
+    </head>
+    <body>
+        <p><%= message %></p>
+        <form action="/users/login" method="post">
+            <input type="email" name="userEmail" placeholder="E-mail">
+            <br>
+            <input type="password" name="userPassword" placeholder="Password">
+            <br>
+            <button type="submit">Login</button>
+        </form>
+    </body>
+</html>

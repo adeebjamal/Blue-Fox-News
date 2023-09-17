@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Registeration</title>
+    </head>
+    <body>
+        <p><%= message %></p>
+        <form action="/users/register" method="POST">
+            <input type="text" name="newName" placeholder="Full name">
+            <br>
+            <input type="email" name="newEmail" placeholder="E-mail">
+            <br>
+            <input type="password" name="newPassword" placeholder="Password">
+            <br>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password">
+            <br>
+            <button type="submit">Register</button>
+        </form>
+    </body>
+</html>
