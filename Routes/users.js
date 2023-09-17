@@ -12,6 +12,8 @@ function generateOTP() {
     return randomNumber;
 }
 
+const sendOTP = require("../functions/send_otp");
+
 // Importing models
 const USER = require("../Models/user");
 
@@ -93,6 +95,7 @@ router.post("/register", async(req,res)=> {
             return;
         }
         const newOTP = generateOTP();
+        await sendOTP(req.body.newEmail, newOTP.toString());
         console.log("This is the OTP: ", newOTP);
         const newUserJWT = jwt.sign({newUserData: req.body, OTP: newOTP}, SECRET_KEY);
         res.cookie("email_and_OTP", newUserJWT);
