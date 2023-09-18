@@ -33,6 +33,14 @@ router.get("/register", async(req,res)=> {
     });
 });
 
+router.get("/logout", async(req,res)=> {
+    // This destroys the saved JWT
+    res.clearCookie("JWT_token");
+    res.render("login", {
+        message: "Logout successful."
+    });
+});
+
 // ---------- POST routes ----------
 router.post("/login", async(req,res)=> {
     try {
@@ -58,7 +66,10 @@ router.post("/login", async(req,res)=> {
         const jwtToken = jwt.sign({ID: tempUser._id}, SECRET_KEY);
         res.cookie("JWT_token", jwtToken);
         res.render("user-dashboard", {
-            name: tempUser.name
+            name: tempUser.name,
+            topic1: tempUser.topic1,
+            topic2: tempUser.topic2,
+            message: ""
         });
     }
     catch(error) {
@@ -122,8 +133,8 @@ router.post("/OTP", async(req,res)=> {
                 name: newUser.newName,
                 email: newUser.newEmail,
                 password: md5(newUser.newPassword),
-                topic1: "",
-                topic2: ""
+                topic1: "Programming",
+                topic2: "Anime"
             });
             await createdUser.save();
             res.clearCookie("email_and_OTP");
@@ -139,6 +150,33 @@ router.post("/OTP", async(req,res)=> {
     }
     catch(error) {
         res.send(error);
+    }
+});
+
+router.post("/update", async(req,res)=> {
+    try {
+        const token = req.cookies.JWT_token;
+        if(token) {
+            const decodedJWT = jwt.verify(token, SECRET_KEY);
+            const foundUser = await USER.findOne({_id: decodedJWT.ID});
+            if(req.body.preference1) {
+                foundUser.topic1 = req.body.preference1;
+            }
+            if(req.body.preference2) {
+                foundUser.topic2 = req.body.preference2;
+            }
+            await foundUser.save();
+            res.render("user-dashboard", {
+                name: foundUser.name,
+                topic1: foundUser.topic1,
+                topic2: foundUser.topic2,
+                message: "News preferences updated successfully."
+            });
+            return;
+        }
+    }
+    catch(error) {
+        console.log("Something wrong happened.");
     }
 });
 

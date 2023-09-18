@@ -7,5 +7,18 @@
     <body>
         <h2>Login Successful</h2>
         <h3>Welcome <%= name %></h3>
+        <br>
+        <p>Update your news preferences.</p>
+        <p><%= message %></p>
+        <form action="/users/update" method="post">
+            <input type="text" name="preference1" placeholder= <%= topic1 %> >
+            <br>
+            <input type="text" name="preference2" placeholder= <%= topic2 %> >
+            <br>
+            <button type="submit">Update</button>
+        </form>
+        <br>
+        <br>
+        <a href="/users/logout">Logout</a>
     </body>
 </html>

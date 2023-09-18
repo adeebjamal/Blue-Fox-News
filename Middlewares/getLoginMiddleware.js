@@ -12,7 +12,10 @@ const getLoginMiddleware = async(req,res,next)=> {
             const foundUser = await USER.findOne({_id: decodedJWT.ID});
             if(foundUser) {
                 res.render("user-dashboard", {
-                    name: foundUser.name
+                    name: foundUser.name,
+                    topic1: foundUser.topic1,
+                    topic2: foundUser.topic2,
+                    message: ""
                 });
                 return;
             }
