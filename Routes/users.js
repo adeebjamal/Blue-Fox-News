@@ -180,4 +180,26 @@ router.post("/update", async(req,res)=> {
     }
 });
 
+router.post("/changeSubscriptionStatus", async(req,res) => {
+    try {
+        const token = req.cookies.JWT_token;
+        if(token) {
+            const decodedJWT = jwt.verify(token, SECRET_KEY);
+            const foundUser = await USER.findOne({_id: decodedJWT.ID});
+            foundUser.subscribed = !foundUser.subscribed;
+            await foundUser.save();
+            res.render("user-dashboard", {
+                name: foundUser.name,
+                topic1: foundUser.topic1,
+                topic2: foundUser.topic2,
+                message: "Subscription status changed successfully."
+            });
+            return;
+        }
+    }
+    catch(error) {
+        console.log("Something wrong happened.");
+    }
+});
+
 module.exports = router;

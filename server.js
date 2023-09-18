@@ -33,7 +33,7 @@ app.use("/users", require("./Routes/users"));
 setInterval(async() => {
     console.log("Sending emails in 5 minutes.");
     await sendNews();
-}, 5*60*1000);
+}, 7*24*60*60*1000);
 
 app.listen(3000, (req,res)=> {
     console.log("Server is running at port 3000. Go to http://localhost:3000");
