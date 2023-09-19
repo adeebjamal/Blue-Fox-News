@@ -75,20 +75,19 @@ For more information <a href="https://github.com/adeebjamal/Blue-Fox-News/blob/m
 This file defines routes for the homepage.
 * A GET route for rendering the homepage template.
 ### B. `users.js`
-This file defines routes related to user authentication, registration, and profile management.
+This file defines routes related to user authentication, registration, and profile management.<br>
 **User Authentication Routes:**
-<br>
---> GET `/login`: Renders the login page.<br>
---> GET `/register`: Renders the registration page.<br>
---> GET `/logout`: Logs the user out and renders the login page.<br>
+* GET `/login`: Renders the login page.
+* GET `/register`: Renders the registration page.
+* GET `/logout`: Logs the user out and renders the login page.
 <br>
 
 **User Authentication POST Routes:**
 <br>
---> POST `/login`: Handles user login, including validation and JWT creation.<br>
---> POST `/register`: Handles user registration, including validation and OTP (One-Time Password) generation.<br>
---> POST `/OTP`: Handles OTP verification during registration.<br>
---> POST `/update`: Handles updating user news preferences.<br>
+* POST `/login`: Handles user login, including validation and JWT creation.
+* POST `/register`: Handles user registration, including validation and OTP (One-Time Password) generation.
+* POST `/OTP`: Handles OTP verification during registration.
+* POST `/update`: Handles updating user news preferences.
 
 ## 4. `Models` Folder
 ### A. `user.js`
