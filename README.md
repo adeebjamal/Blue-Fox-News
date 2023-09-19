@@ -83,7 +83,6 @@ This file defines routes related to user authentication, registration, and profi
 <br>
 
 **User Authentication POST Routes:**
-<br>
 * POST `/login`: Handles user login, including validation and JWT creation.
 * POST `/register`: Handles user registration, including validation and OTP (One-Time Password) generation.
 * POST `/OTP`: Handles OTP verification during registration.
