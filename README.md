@@ -77,14 +77,18 @@ This file defines routes for the homepage.
 ### B. `users.js`
 This file defines routes related to user authentication, registration, and profile management.
 **User Authentication Routes:**
---> GET `/login`: Renders the login page.
---> GET `/register`: Renders the registration page.
---> GET `/logout`: Logs the user out and renders the login page.
+<br>
+--> GET `/login`: Renders the login page.<br>
+--> GET `/register`: Renders the registration page.<br>
+--> GET `/logout`: Logs the user out and renders the login page.<br>
+<br>
+
 **User Authentication POST Routes:**
---> POST `/login`: Handles user login, including validation and JWT creation.
---> POST `/register`: Handles user registration, including validation and OTP (One-Time Password) generation.
---> POST `/OTP`: Handles OTP verification during registration.
---> POST `/update`: Handles updating user news preferences.
+<br>
+--> POST `/login`: Handles user login, including validation and JWT creation.<br>
+--> POST `/register`: Handles user registration, including validation and OTP (One-Time Password) generation.<br>
+--> POST `/OTP`: Handles OTP verification during registration.<br>
+--> POST `/update`: Handles updating user news preferences.<br>
 
 ## 4. `Models` Folder
 ### A. `user.js`
