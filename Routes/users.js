@@ -174,8 +174,16 @@ router.post("/update", async(req,res)=> {
             });
             return;
         }
+        else {
+            res.render("login", {
+                message: "You need to login first."
+            });
+        }
     }
     catch(error) {
+        res.render("login", {
+            message: "You need to login first."
+        });
         console.log("Something wrong happened.");
     }
 });
@@ -196,8 +204,16 @@ router.post("/changeSubscriptionStatus", async(req,res) => {
             });
             return;
         }
+        else {
+            res.render("login", {
+                message: "You need to login first."
+            });
+        }
     }
     catch(error) {
+        res.render("login", {
+            message: "You need to login first."
+        });
         console.log("Something wrong happened.");
     }
 });
